@@ -1,0 +1,136 @@
+/* Sunshine Home Care – Jaipur
+   Completed and Refactored Stylesheet
+*/
+
+/* ===== CSS Variables (Theme) ===== */
+:root {
+  /* Corrected color variables */
+  --sun-yellow: #FBBF24; /* amber-400 */
+  --sun-gold: #F59E0B;   /* amber-500 */
+  --sun-orange: #F97316; /* orange-500 */
+  --sun-rose: #FB7185;   /* rose-400 */
+  --ink: #0F172A;        /* slate-900 */
+  --slate: #334155;      /* slate-700 */
+  --muted: #64748B;      /* slate-500 */
+  --cloud: #F8FAFC;      /* slate-50 */
+  --card: #FFFFFF;       /* white */
+  --success: #10B981;    /* emerald-500 */
+}
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background: linear-gradient(180deg, #fff, #fff 60%, #fff7e6);
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.small { font-size: .9rem; color: var(--muted); }
+
+/* ===== Header / Nav ===== */
+header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .8); backdrop-filter: saturate(180%) blur(10px); border-bottom: 1px solid #eef2ff; }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: .6rem; font-weight: 800; letter-spacing: .3px; }
+.brand .logo { width: 36px; height: 36px; border-radius: 10px; background: conic-gradient(from 210deg, var(--sun-yellow), var(--sun-orange)); display: grid; place-items: center; box-shadow: 0 6px 16px rgba(249, 115, 22, .25); }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+nav a { font-weight: 600; color: var(--slate); }
+
+/* ===== Buttons ===== */
+.btn { display: inline-flex; align-items: center; gap: .5rem; border: 0; border-radius: 999px; padding: .8rem 1.15rem; font-weight: 700; cursor: pointer; transition: .2s transform, .2s box-shadow; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: linear-gradient(90deg, var(--sun-yellow), var(--sun-orange)); color: #111; box-shadow: 0 8px 16px rgba(251, 191, 36, .35); }
+.btn-outline { background: #fff; border: 2px solid var(--sun-yellow); color: var(--ink); }
+/* New button styles for previously inline-styled elements */
+.btn-dark { background: #111; color: #fff; }
+.btn-whatsapp { background: #0ea5e9; color: #fff; }
+
+/* ===== Hero ===== */
+.hero { position: relative; overflow: hidden; }
+.hero-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; padding: 64px 0; }
+.badge { display: inline-flex; align-items: center; gap: .5rem; background: #fff7e6; border: 1px solid #ffe1a3; border-radius: 999px; padding: .35rem .7rem; font-size: .85rem; color: #a16207; font-weight: 700; }
+.title { font-family: "Playfair Display", serif; font-size: clamp(2rem, 3.5vw, 3.25rem); line-height: 1.1; margin: .25rem 0 .75rem; }
+.lead { font-size: 1.05rem; color: var(--muted); max-width: 48ch; }
+.hero-actions { margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-grid { margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.hero-card { background: var(--card); border: 1px solid #eef2ff; border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(2, 6, 23, .08); }
+.hero-stat { padding: 14px; border-radius: 16px; background: linear-gradient(180deg, #fff, #fffaf0); border: 1px solid #fde68a; }
+.hero-stat h4 { margin: 0; font-size: 1.1rem; }
+.hero-illus { position: relative; }
+.blob { position: absolute; inset: auto -10% -30% auto; width: 480px; height: 480px; background: radial-gradient(120px 120px at 30% 30%, #fff 0%, #fff0 70%), conic-gradient(from 160deg, #fff6, #fff0 30%), radial-gradient(240px 240px at 70% 50%, #fde68a 0, #fef3c7 45%, #fff 65%); filter: blur(10px); border-radius: 50%; opacity: .8; pointer-events: none; }
+.illus-card { position: relative; background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 20px; box-shadow: 0 10px 25px rgba(15, 23, 42, .1); }
+.illus-title { margin-top: 0; }
+.illus-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tick { display: flex; align-items: center; gap: .6rem; font-weight: 600; color: #065f46; }
+.tick svg { width: 18px; height: 18px; fill: var(--success); }
+
+/* ===== Sections ===== */
+section { padding: 64px 0; }
+.section-title { font-family: "Playfair Display", serif; font-size: 2rem; margin: 0 0 .25rem; }
+.section-lead { color: var(--muted); max-width: 60ch; }
+
+/* ===== Services ===== */
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 20px; box-shadow: 0 8px 20px rgba(2, 6, 23, .06); }
+.card h3 { margin: 6px 0 8px; }
+.card-title { margin-top: 0; }
+.card-stacked { margin-top: 12px; }
+.pill { display: inline-block; border-radius: 999px; padding: .25rem .6rem; font-weight: 700; font-size: .75rem; background: #fff7e6; border: 1px solid #ffe1a3; color: #92400e; }
+
+/* ===== Pricing ===== */
+.pricing { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.price { border-radius: 20px; border: 1px solid #e2e8f0; background: #fff; box-shadow: 0 12px 28px rgba(2, 6, 23, .06); padding: 22px; position: relative; }
+.price.popular { outline: 3px solid #fde68a; }
+.price h4 { margin: .25rem 0; }
+.price .amount { font-size: 2rem; font-weight: 800; }
+.price ul { list-style: none; padding-left: 0; margin: 10px 0 0; }
+.price li { display: flex; gap: .5rem; align-items: flex-start; margin: .4rem 0; color: var(--slate); }
+.price-action { margin-top: 14px; }
+
+/* ===== About ===== */
+.about { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; }
+.about img { border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 26px rgba(15, 23, 42, .08); }
+.about-list { margin-top: 10px; line-height: 1.9; }
+.about-action { margin-top: 16px; }
+
+/* ===== Testimonials ===== */
+.testimonials { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.tcard { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px; }
+.stars { letter-spacing: 1px; color: #f59e0b; }
+
+/* ===== Contact / Booking ===== */
+.contact { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: start; }
+form { display: grid; gap: 12px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+label { font-weight: 600; color: var(--slate); }
+input, textarea, select { width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 12px; font: inherit; }
+input:focus, textarea:focus, select:focus { outline: 2px solid var(--sun-yellow); border-color: var(--sun-yellow); }
+textarea { min-height: 120px; }
+.contact-list { line-height: 1.9; margin: 0; padding-left: 18px; }
+
+/* ===== Footer ===== */
+footer { padding: 28px 0; background: #0b1220; color: #e5e7eb; margin-top: 40px; }
+.footgrid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
+.footbrand { display: flex; align-items: center; gap: .6rem; color: #fff; font-weight: 700; }
+.footbrand .logo { width: 32px; height: 32px; border-radius: 8px; }
+.footer-motto { margin-top: 8px; color: #cbd5e1; }
+.footer-copy { color: #94a3b8; }
+.footer-title { margin: .25rem 0; color: #fff; }
+
+/* ===== Responsive ===== */
+@media (max-width: 980px) {
+  .hero-inner, .about, .contact { grid-template-columns: 1fr; }
+  .cards, .pricing, .testimonials { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  nav ul { display: none; }
+  .cards, .pricing, .testimonials { grid-template-columns: 1fr; }
+  .nav .actions .btn-outline { display: none; }
+  .hero-inner { padding: 40px 0; }
+  section { padding: 48px 0; }
+  .form-row { grid-template-columns: 1fr; }
+}
